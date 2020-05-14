@@ -2,15 +2,25 @@ package solution;
 
 public class Cone {
 	
-	public static double totalArea(double r, double h) {
+	public static double slantHeightFromRadiusHeight(double r,double h) {
+		double result = Math.sqrt(r*r+h*h);
+		return result;
+	}
+	
+	public static double radiusOrHeightFromSlantHeight(double r,double h) {
+		double result = r>h? Math.sqrt(r*r+h*h):Math.sqrt(h*h-r*r);
+		return result;
+	}
+	
+	public static double totalArea(double r, double l) {
 		double area1 = Circle.area(r);
-		double area2 = lateralArea(r,h);
+		double area2 = lateralArea(r,l);
 		double result = area1 + area2;
 		return result;
 	}
 	
-	public static double lateralArea(double r,double h) {
-		double result = Circle.parameter(r) * h;
+	public static double lateralArea(double r,double l) {
+		double result = Circle.parameter(r) * l;
 		return result;
 	}
 	
@@ -24,12 +34,15 @@ public class Cone {
 		return result;
 	}
 	
-	public static double radiusFromLateralArea(double LateralArea, double h) {
-		double result = LateralArea/(h);
+	public static double radiusFromLateralArea(double LateralArea, double l) {
+		// LA = pi r l 
+		double result = LateralArea/(l);
 		return result;
 	}
-	public static double radiusFromTotalArea(double TotalArea, double h) {
-		double result = TotalArea/(h);
+	
+	public static double radiusFromTotalArea(double TotalArea, double l) {
+		// TA = pi r sqr + pi r l
+		double result = TotalArea/l;
 		return result;
 	}
 	
@@ -67,8 +80,5 @@ public class Cone {
 		double result = Volume/(r);
 		return result;
 	}
-	
-	
-	
 	
 }

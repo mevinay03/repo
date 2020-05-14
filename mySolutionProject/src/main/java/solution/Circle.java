@@ -10,6 +10,7 @@ public class Circle {
 	}
 	
 	public static double area(double r) {
+		//A = pi r * r 
 		double result = pi * r * r;
 		return result;
 	}
