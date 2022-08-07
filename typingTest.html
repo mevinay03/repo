@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="myApp.js"></script>
+<script src="controller.js"></script>
+<script src="directive.js"></script>
+<script src="designTypeTest.css"></script>
+<script src="ViewDetailsController.js"></script>
+
+<body ng-app="myApp" ng-controller="myCtrl" style="background-color:powderblue;">
+<div align="center">
+<div><h2 style="color:red">KANCHAN OFFLINE typing master </h2></div>
+<!--<k-para-graph1></k-para-graph1>
+<div><h3 style ="color:violet">{{paragraph}}</div>-->
+<div>
+<button ng-click="clk_aMinus()" ng-model="btn_aMinus">-- </button>
+Increase Text size
+<button ng-click="clk_aPlus()" ng-model="btn_aPlus">++</button>
+	
+	Select Color<select ng-model="selectedColor" style="background-color:{{selectedColor}};" >
+		<option ng-repeat="color in txtColors" value="{{color.value}}" style="background-color:{{color.value}};">{{color.name}}</option>
+	</select>
+	
+	Questions
+	<button ng-click="clk_next()" ng-model="btn_next">Change</button>
+	</div>
+<div>
+<textarea style ="color:{{selectedColor}};font-size:{{fontsize}}px;" ng-model="paragraph" rows="7" cols="100" ng-disabled="true">
+</textarea>
+</div>
+<div>
+<textarea style ="font-size:{{fontsize}}px" ng-model="txtArea" rows="10" cols="100" ng-disabled="{{flag}}" ng-keypress="onKeyPress()" placeholder="Start your Typing Here..">
+</textarea>
+</div>
+
+<div><button ng-click="clk_getResult(txtArea)" ng-model="submit">Submit</button>
+<button ng-click="clk_resetWord()" ng-model="reset">Reset</button>
+<button ng-click="clk_timeStart(5)" ng-model="btn_timeStart">Time </button></div>
+</div>
+<table border="1" align="center">
+<tr><td>Total Word:</td><td>{{totalWrd}}</td><td>Wrong Word:</td><td>{{skipword}}</td><td>Back space:</td><td>{{backSpace}}</td></tr>
+</table>
+</body>
+</html>
